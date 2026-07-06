@@ -565,3 +565,8 @@ body.sp-light .vibex-social {
   margin-top: 0 !important;
   box-sizing: border-box;
 }
+
+/* ===== Hide Notification Bell & Support Headphone Icons ===== */
+.sp-notif-btn, .sp-support-link, .vibex-header-support {
+  display: none !important;
+}

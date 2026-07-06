@@ -2266,3 +2266,8 @@
   margin-top: 0 !important;
   box-sizing: border-box;
 }
+
+/* ===== Hide Notification Bell & Support Headphone Icons ===== */
+.ql-notif-btn, .ql-support-link {
+  display: none !important;
+}
