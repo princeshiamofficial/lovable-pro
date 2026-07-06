@@ -1437,7 +1437,7 @@ function updateSyncStatus() {
           }
         }
       } catch (e) {}
-      _0x4f6efa.innerHTML = "<span class=\"ql-sync-text\">" + t("sync.ok") + " " + t("sync.project") + " " + displayProject + "</span>";
+      _0x4f6efa.innerHTML = "<span class=\"ql-sync-text\">" + SVG_ICONS.check + " " + t("sync.project") + " " + displayProject + "</span>";
     } else {
       _0x4f6efa.className = "ql-sync-status ql-sync-waiting";
       _0x4f6efa.innerHTML = "<span class=\"ql-sync-text\">" + SVG_ICONS.clock + t("sync.waiting") + "</span>";
