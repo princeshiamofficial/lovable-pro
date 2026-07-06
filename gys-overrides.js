@@ -138,6 +138,14 @@
     } catch (_) {}
   }
   function patch() {
+    try {
+      var isOnProject = window.location.pathname.indexOf("/projects/") >= 0;
+      if (isOnProject) {
+        document.documentElement.classList.add("ql-on-project");
+      } else {
+        document.documentElement.classList.remove("ql-on-project");
+      }
+    } catch (_) {}
     replaceTextNodes(document.body || document.documentElement);
     patchButtonGrids(document);
     patchBugIcon(document);

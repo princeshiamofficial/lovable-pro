@@ -2272,8 +2272,8 @@
   display: none !important;
 }
 
-/* ===== Hide native chat input form when custom extension chat is active ===== */
-.ql-license-activated form#chat-input {
+/* ===== Hide native chat input form ONLY on project pages when custom extension chat is active ===== */
+.ql-on-project.ql-license-activated form#chat-input {
   display: none !important;
 }
 .ql-license-activated.ql-native-chat-active form#chat-input,
