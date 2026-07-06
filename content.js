@@ -318,7 +318,7 @@ function showLicenseGate(_0x3f52a1) {
   setTimeout(() => {
     const _0x41d6fc = document.getElementById("ql-buy-license-btn");
     if (_0x41d6fc) {
-      _0x41d6fc.addEventListener("click", () => window.open("https://wa.me/8801860036852", "_blank", "noopener,noreferrer"));
+      _0x41d6fc.addEventListener("click", () => window.open("https://wa.me/8801682328830", "_blank", "noopener,noreferrer"));
     }
     setupMinimize();
   }, 50);

@@ -6,8 +6,8 @@
   var BRAND_NEW = "MiraSoft";
   var LINKS = {
     renew: "https://ext.getyourservicebd.store",
-    support: "http://wa.me/+8801833226462",
-    facebook: "https://www.facebook.com/getyourservicebd"
+    support: "https://wa.me/8801682328830",
+    facebook: "https://www.facebook.com/mehanahmed.me"
   };
   var LOGO_URL = typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.getURL ? chrome.runtime.getURL("assets/logo-master-lovable-square.png") : "assets/logo-master-lovable-square.png";
   function openUrl(url) {
