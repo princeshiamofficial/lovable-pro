@@ -120,9 +120,22 @@
       }
     } catch (_) {}
   }
+  function patchBugIcon(root) {
+    try {
+      var doc = root || document;
+      var BUG_SVG_HTML = "<svg width=\"14\" height=\"14\" fill=\"currentColor\" viewBox=\"0 0 16 16\"><path d=\"M4.385.578a.5.5 0 0 0-.678.368L3.5 2.002a5 5 0 0 0-1.008.55L1.48 1.775a.5.5 0 1 0-.643.765l1.033.869a5 5 0 0 0-.427 1.157L.422 4.417a.5.5 0 0 0-.329.638t.638.33l1.015-.224a5 5 0 0 0 .092 1.258L.78 6.945a.5.5 0 0 0-.256.666l.004.007a.5.5 0 0 0 .662.254l1.056-.475a5 5 0 0 0 .638 1.144L1.78 9.61a.5.5 0 0 0-.256.666l.004.007a.5.5 0 0 0 .662.254l1.056-.475c.344.473.764.88 1.238 1.206L3.385 12.4a.5.5 0 0 0-.678.368l-.207 1.056a.5.5 0 0 0 .368.678l.056.007a.5.5 0 0 0 .478-.375l.186-.949A5.006 5.006 0 0 0 8 13c1.693 0 3.208-.838 4.14-2.128l.186.949a.5.5 0 0 0 .478.375l.056-.007a.5.5 0 0 0 .368-.678l-.207-1.056a.5.5 0 0 0-.678-.368l-1.097-1.126c.474-.326.894-.733 1.238-1.206l1.056.475a.5.5 0 0 0 .662-.254l.004-.007a.5.5 0 0 0-.256-.666l-1.058-.476a5 5 0 0 0 .092-1.258l1.015.224a.5.5 0 0 0 .638-.33.5.5 0 0 0-.329-.638l-1.022-.152a5 5 0 0 0-.427-1.157l1.033-.869a.5.5 0 1 0-.643-.765L13.51 2.552a5 5 0 0 0-1.008-.55L12.293.946a.5.5 0 0 0-.678-.368L11.41 1.634A5.006 5.006 0 0 0 8 1C6.273 1 4.724 1.87 3.992 3.197L4.385.578zM6 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm6 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z\"/></svg>";
+      doc.querySelectorAll(".ql-chip svg, .sp-chip svg").forEach(function (svg) {
+        var html = svg.innerHTML || "";
+        if (html.indexOf("M.102 2.223") >= 0 || html.indexOf("M.102") >= 0) {
+          svg.outerHTML = BUG_SVG_HTML;
+        }
+      });
+    } catch (_) {}
+  }
   function patch() {
     replaceTextNodes(document.body || document.documentElement);
     patchButtonGrids(document);
+    patchBugIcon(document);
     try {
       if (/Vibex/i.test(document.title)) {
         document.title = document.title.replace(BRAND_OLD, BRAND_NEW);
