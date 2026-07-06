@@ -2276,6 +2276,7 @@
 .ql-license-activated form#chat-input {
   display: none !important;
 }
+.ql-license-activated.ql-native-chat-active form#chat-input,
 .ql-native-chat-active form#chat-input {
   display: flex !important;
 }

@@ -2616,30 +2616,33 @@ function injectNativeChatOverlay() {
     setTimeout(injectNativeChatOverlay, 500);
     return;
   }
-  if (!document.getElementById("ql-native-badge")) {
-    const _0x1758a6 = getComputedStyle(_0x4eec1e).position;
-    if (_0x1758a6 === "static") {
-      _0x4eec1e.style.position = "relative";
+  try {
+    if (!document.getElementById("ql-native-badge")) {
+      const _0x1758a6 = getComputedStyle(_0x4eec1e).position;
+      if (_0x1758a6 === "static") {
+        _0x4eec1e.style.position = "relative";
+      }
+      const _0x40a03a = document.createElement("div");
+      _0x40a03a.id = "ql-native-badge";
+      _0x40a03a.className = "ql-native-badge";
+      _0x40a03a.innerHTML = "⚡ <span>Vibex Academy</span>";
+      _0x4eec1e.appendChild(_0x40a03a);
     }
-    const _0x40a03a = document.createElement("div");
-    _0x40a03a.id = "ql-native-badge";
-    _0x40a03a.className = "ql-native-badge";
-    _0x40a03a.innerHTML = "⚡ <span>Vibex Academy</span>";
-    _0x4eec1e.appendChild(_0x40a03a);
-  }
-  if (!document.getElementById("ql-native-return-btn")) {
-    const _0x336acb = document.createElement("button");
-    _0x336acb.id = "ql-native-return-btn";
-    _0x336acb.className = "ql-native-return-btn";
-    _0x336acb.innerHTML = "← Back to Extension";
-    _0x336acb.addEventListener("click", _0x5ccbac => {
-      _0x5ccbac.preventDefault();
-      _0x5ccbac.stopPropagation();
-      deactivateNativeChat();
-    });
-    _0x4eec1e.parentElement.insertBefore(_0x336acb, _0x4eec1e.nextSibling);
-  }
-  const _0xc7b51 = document.getElementById("chatinput-send-message-button");
+    if (!document.getElementById("ql-native-return-btn")) {
+      const _0x336acb = document.createElement("button");
+      _0x336acb.id = "ql-native-return-btn";
+      _0x336acb.className = "ql-native-return-btn";
+      _0x336acb.innerHTML = "← Back to Extension";
+      _0x336acb.addEventListener("click", _0x5ccbac => {
+        _0x5ccbac.preventDefault();
+        _0x5ccbac.stopPropagation();
+        deactivateNativeChat();
+      });
+      if (_0x4eec1e.parentElement) {
+        _0x4eec1e.parentElement.insertBefore(_0x336acb, _0x4eec1e.nextSibling);
+      }
+    }
+    const _0xc7b51 = document.getElementById("chatinput-send-message-button");
   if (_0xc7b51) {
     _0xc7b51.classList.add("ql-native-send-active");
   }
@@ -2680,13 +2683,16 @@ function injectNativeChatOverlay() {
   }
   _0x4eec1e.addEventListener("submit", _0x34f9d8, true);
   _0x4eec1e.addEventListener("keydown", _0x76ab70, true);
-  qlNativeChatCleanup = function () {
-    if (_0xc7b51) {
-      _0xc7b51.removeEventListener("click", _0x5cd9c1, true);
-    }
-    _0x4eec1e.removeEventListener("submit", _0x34f9d8, true);
-    _0x4eec1e.removeEventListener("keydown", _0x76ab70, true);
-  };
+    qlNativeChatCleanup = function () {
+      if (_0xc7b51) {
+        _0xc7b51.removeEventListener("click", _0x5cd9c1, true);
+      }
+      _0x4eec1e.removeEventListener("submit", _0x34f9d8, true);
+      _0x4eec1e.removeEventListener("keydown", _0x76ab70, true);
+    };
+  } catch (_err) {
+    console.error("injectNativeChatOverlay error:", _err);
+  }
 }
 async function sendViaNativeChat(_0x29d38d, _0x682baf) {
   addToChatHistory(_0x29d38d, "ok");
