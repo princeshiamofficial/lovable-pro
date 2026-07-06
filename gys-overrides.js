@@ -80,8 +80,49 @@
       });
     } catch (_) {}
   }
+  function patchButtonGrids(root) {
+    try {
+      var doc = root || document;
+      // Floating Panel
+      var qlBtns = doc.querySelectorAll(".ql-watermark-btn, .ql-shield-btn, .ql-native-chat-btn");
+      if (qlBtns.length >= 2) {
+        var first = qlBtns[0];
+        var parent = first.parentElement;
+        if (parent && !parent.classList.contains("ql-button-grid")) {
+          var grid = parent.querySelector(".ql-button-grid");
+          if (!grid) {
+            grid = document.createElement("div");
+            grid.className = "ql-button-grid";
+            parent.insertBefore(grid, first);
+          }
+          qlBtns.forEach(function (btn) {
+            grid.appendChild(btn);
+          });
+        }
+      }
+
+      // Side Panel
+      var spBtns = doc.querySelectorAll(".sp-watermark-btn, .sp-shield-btn, .sp-native-chat-btn, .sp-download-source-btn");
+      if (spBtns.length >= 2) {
+        var firstSp = spBtns[0];
+        var parentSp = firstSp.parentElement;
+        if (parentSp && !parentSp.classList.contains("sp-button-grid")) {
+          var gridSp = parentSp.querySelector(".sp-button-grid");
+          if (!gridSp) {
+            gridSp = document.createElement("div");
+            gridSp.className = "sp-button-grid";
+            parentSp.insertBefore(gridSp, firstSp);
+          }
+          spBtns.forEach(function (btn) {
+            gridSp.appendChild(btn);
+          });
+        }
+      }
+    } catch (_) {}
+  }
   function patch() {
     replaceTextNodes(document.body || document.documentElement);
+    patchButtonGrids(document);
     try {
       if (/Vibex/i.test(document.title)) {
         document.title = document.title.replace(BRAND_OLD, BRAND_NEW);

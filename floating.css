@@ -2252,3 +2252,17 @@
 .vibex-renew-row {
   display: none !important;
 }
+
+/* ===== Action Buttons Grid (2-column layout) ===== */
+.ql-button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+  width: 100%;
+}
+.ql-button-grid > * {
+  width: 100% !important;
+  margin-top: 0 !important;
+  box-sizing: border-box;
+}
