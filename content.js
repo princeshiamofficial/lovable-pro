@@ -1580,7 +1580,7 @@ function renderPromptView() {
   if (!_0x5a69b5) {
     return;
   }
-  _0x5a69b5.innerHTML = "<textarea id=\"ql-msg\" rows=\"3\" placeholder=\"Enter your command...\" spellcheck=\"false\"></textarea><div id=\"ql-attach-preview\" class=\"ql-attach-preview\" style=\"display:none\"></div><div class=\"ql-action-bar\"><div class=\"ql-action-left\"><label class=\"ql-toggle\"><input type=\"checkbox\" id=\"ql-modo-plano\"><span class=\"ql-toggle-slider\"></span></label><span class=\"ql-toggle-label-inline\">Modo Plano</span></div><div class=\"ql-action-center\"><button id=\"ql-attach-btn\" class=\"ql-attach-btn\" title=\"Attach file (max 10)\">📎</button><button id=\"ql-optimize-btn\" class=\"ql-tool-btn\" title=\"Optimize with AI\">" + SVG_ICONS.openai + "</button><button id=\"ql-speech-btn\" class=\"ql-tool-btn\" title=\"Voice to text\">" + SVG_ICONS.mic + "</button></div><div class=\"ql-action-right-send\"><button id=\"ql-send\" class=\"ql-send-btn\">Send</button></div></div><input type=\"file\" id=\"ql-file-input\" multiple style=\"display:none\" accept=\"*/*\"><div id=\"ql-log\"></div><div class=\"ql-shortcuts-section\"><span class=\"ql-shortcuts-title\">QUICK SHORTCUTS</span><div class=\"ql-shortcuts-grid\" id=\"ql-chips\"></div></div><button id=\"ql-remove-watermark\" class=\"ql-watermark-btn\">Remove Watermark</button><button id=\"ql-shield-btn\" class=\"ql-shield-btn\"><span id=\"ql-shield-label\">Enable Shield</span></button><button id=\"ql-native-chat-btn\" class=\"ql-native-chat-btn\">Use Default Chat</button><button id=\"ql-download-project\" class=\"ql-watermark-btn\" style=\"background:linear-gradient(135deg,rgba(59,130,246,0.12),rgba(37,99,235,0.08));border-color:rgba(59,130,246,0.3);color:#60a5fa;margin-top:6px\">Download Source Code</button><div id=\"ql-download-status\" style=\"display:none\"></div>";
+  _0x5a69b5.innerHTML = "<textarea id=\"ql-msg\" rows=\"3\" placeholder=\"Enter your command...\" spellcheck=\"false\"></textarea><div id=\"ql-attach-preview\" class=\"ql-attach-preview\" style=\"display:none\"></div><div class=\"ql-action-bar\"><div class=\"ql-action-left\"><label class=\"ql-toggle\"><input type=\"checkbox\" id=\"ql-modo-plano\"><span class=\"ql-toggle-slider\"></span></label><span class=\"ql-toggle-label-inline\">Modo Plano</span></div><div class=\"ql-action-center\"><button id=\"ql-attach-btn\" class=\"ql-attach-btn\" title=\"Attach file (max 10)\">" + SVG_ICONS.paperclip + "</button><button id=\"ql-optimize-btn\" class=\"ql-tool-btn\" title=\"Optimize with AI\">" + SVG_ICONS.openai + "</button><button id=\"ql-speech-btn\" class=\"ql-tool-btn\" title=\"Voice to text\">" + SVG_ICONS.mic + "</button></div><div class=\"ql-action-right-send\"><button id=\"ql-send\" class=\"ql-send-btn\">Send</button></div></div><input type=\"file\" id=\"ql-file-input\" multiple style=\"display:none\" accept=\"*/*\"><div id=\"ql-log\"></div><div class=\"ql-shortcuts-section\"><span class=\"ql-shortcuts-title\">QUICK SHORTCUTS</span><div class=\"ql-shortcuts-grid\" id=\"ql-chips\"></div></div><button id=\"ql-remove-watermark\" class=\"ql-watermark-btn\">Remove Watermark</button><button id=\"ql-shield-btn\" class=\"ql-shield-btn\"><span id=\"ql-shield-label\">Enable Shield</span></button><button id=\"ql-native-chat-btn\" class=\"ql-native-chat-btn\">Use Default Chat</button><button id=\"ql-download-project\" class=\"ql-watermark-btn\" style=\"background:linear-gradient(135deg,rgba(59,130,246,0.12),rgba(37,99,235,0.08));border-color:rgba(59,130,246,0.3);color:#60a5fa;margin-top:6px\">Download Source Code</button><div id=\"ql-download-status\" style=\"display:none\"></div>";
   setupSend();
   setupSuggestionChips();
   setupWatermarkButton();
@@ -2041,7 +2041,7 @@ function setupSend() {
     try {
       if (_0x52526c) {
         _0x52526c.className = "ql-log-info";
-        _0x52526c.innerHTML = _0x299b7e ? "📎 Enviando com imagem..." : SVG_ICONS.clock + " Enviando prompt...";
+        _0x52526c.innerHTML = _0x299b7e ? SVG_ICONS.paperclip + " Enviando com imagem..." : SVG_ICONS.clock + " Enviando prompt...";
       }
       _0x2cd458.classList.add("ql-sending");
       _0x2cd458.disabled = true;
@@ -2332,7 +2332,7 @@ async function handleFilesAttach(_0xc82077) {
       renderAttachPreview();
     }
   }
-  showCustomAlert("Anexado 📎", _0xc82077.length + " file(s) added!");
+  showCustomAlert("Anexado", _0xc82077.length + " file(s) added!");
 }
 var VERSIONS_URL_POPUP = _SB_URL + "/rest/v1/extension_versions?select=version,changelog,file_path,is_alert_active&order=created_at.desc&limit=1&is_alert_active=eq.true";
 var USER_ROLES_URL_POPUP = _SB_URL + "/rest/v1/user_roles?select=role";
