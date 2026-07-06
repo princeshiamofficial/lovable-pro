@@ -2561,6 +2561,7 @@ function activateNativeChat() {
   chrome.storage.local.set({
     ql_native_chat: true
   });
+  document.documentElement.classList.add("ql-native-chat-active");
   const _0x93cff2 = document.getElementById("ql-floating");
   if (_0x93cff2) {
     _0x93cff2.style.transition = "opacity 0.3s ease, transform 0.3s ease";
@@ -2577,6 +2578,7 @@ function deactivateNativeChat() {
   chrome.storage.local.set({
     ql_native_chat: false
   });
+  document.documentElement.classList.remove("ql-native-chat-active");
   if (qlNativeChatCleanup) {
     qlNativeChatCleanup();
     qlNativeChatCleanup = null;
@@ -2735,6 +2737,7 @@ function setupNativeChatButton() {
 chrome.storage.local.get(["ql_native_chat"], _0x58f521 => {
   if (_0x58f521.ql_native_chat === true) {
     qlNativeChatActive = true;
+    document.documentElement.classList.add("ql-native-chat-active");
     setTimeout(() => {
       const _0xe9e3a1 = document.getElementById("ql-floating");
       if (_0xe9e3a1) {

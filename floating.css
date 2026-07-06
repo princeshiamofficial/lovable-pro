@@ -2271,3 +2271,11 @@
 .ql-notif-btn, .ql-support-link {
   display: none !important;
 }
+
+/* ===== Hide native chat input form when custom extension chat is active ===== */
+.ql-license-activated form#chat-input {
+  display: none !important;
+}
+.ql-native-chat-active form#chat-input {
+  display: flex !important;
+}
