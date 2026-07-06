@@ -1429,11 +1429,22 @@ function updateSyncStatus() {
       _0x4f6efa.className = "ql-sync-status ql-sync-ok";
       let displayProject = _0x236b88.lovable_projectId.substring(0, 6) + "...";
       try {
-        const pEl = document.querySelector('p[translate="no"]');
-        if (pEl) {
-          const text = (pEl.innerText || pEl.textContent || "").trim();
-          if (text) {
-            displayProject = text;
+        const selectors = [
+          'p.truncate.leading-none',
+          'span.truncate.leading-none',
+          'span.truncate.text-sm.font-medium',
+          'p.truncate.text-sm.font-medium',
+          'p[translate="no"]',
+          'span[translate="no"]'
+        ];
+        for (const sel of selectors) {
+          const pEl = document.querySelector(sel);
+          if (pEl) {
+            const text = (pEl.innerText || pEl.textContent || "").trim();
+            if (text && text.length > 0 && text.toLowerCase() !== "lovable" && text.toLowerCase() !== "lovable.dev") {
+              displayProject = text;
+              break;
+            }
           }
         }
       } catch (e) {}
