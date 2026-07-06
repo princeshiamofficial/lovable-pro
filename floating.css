@@ -2245,3 +2245,10 @@
 .ql-license-activated span[class*="group-hover/share-card"] {
   display: none !important;
 }
+
+/* Hide license countdown card and renew button wrapper */
+#ql-trial-countdown,
+.ql-trial-countdown,
+.vibex-renew-row {
+  display: none !important;
+}
