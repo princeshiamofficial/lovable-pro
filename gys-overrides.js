@@ -118,6 +118,30 @@
         el.style.display = "none";
       }
     });
+
+    // Hide "Upgrade to Pro" when license is activated
+    try {
+      if (document.documentElement.classList.contains("ql-license-activated")) {
+        document.querySelectorAll("span, div, p, h1, h2, h3, h4, h5, h6, button, a").forEach(function (el) {
+          if (el.textContent && el.textContent.trim() === "Upgrade to Pro") {
+            var card = el.closest('a, button, [role="button"], .border, [class*="card"], [class*="banner"]');
+            if (!card) {
+              var temp = el;
+              for (var i = 0; i < 3; i++) {
+                if (temp.parentElement && temp.parentElement.tagName !== "BODY" && temp.parentElement.tagName !== "HTML") {
+                  temp = temp.parentElement;
+                }
+              }
+              card = temp;
+            }
+            if (card) {
+              card.style.setProperty("display", "none", "important");
+            }
+          }
+        });
+      }
+    } catch (_) {}
+
     patchLogos(document);
   }
   if (document.readyState === "loading") {
