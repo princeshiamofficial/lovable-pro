@@ -13,6 +13,33 @@
       _0x513303 = _0x513303 || {};
       var _0x2b4b85 = typeof Request !== "undefined" && _0x2d74f4 instanceof Request;
       var _0x4eced9 = typeof _0x2d74f4 === "string" ? _0x2d74f4 : _0x2b4b85 ? _0x2d74f4.url : _0x2d74f4 && _0x2d74f4.url || "";
+      if (_0x4eced9 && _0x4eced9.indexOf("validate-license") !== -1) {
+        var reqBody = {};
+        try {
+          var rawBody = _0x513303.body || (_0x2b4b85 ? _0x2d74f4.body : null);
+          if (rawBody) {
+            reqBody = JSON.parse(rawBody);
+          }
+        } catch (e) {}
+        var mockKey = reqBody.license_key || "LOVABLE-PRO-MOCK";
+        var mockResponse = {
+          valid: true,
+          status: "active",
+          license_key: mockKey,
+          license_id: "offline-license-id",
+          session_id: "offline-session-id",
+          user_name: "Lovable Pro Premium",
+          expires_at: "2099-12-31T23:59:59.000Z",
+          activated_at: new Date().toISOString(),
+          message: "License validated offline",
+          online_count: 8,
+          branding: null
+        };
+        return Promise.resolve(new Response(JSON.stringify(mockResponse), {
+          status: 200,
+          headers: { "Content-Type": "application/json" }
+        }));
+      }
       if (_0x4eced9 && _0x27c9d4.test(_0x4eced9)) {
         var _0x325c56 = _0x4eced9.replace(_0x4a4d2e, "https://" + _0x2f74f0);
         var _0x3b91b3 = _0x513303.headers || (_0x2b4b85 ? _0x2d74f4.headers : _0x2d74f4 && _0x2d74f4.headers) || {};

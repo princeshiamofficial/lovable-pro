@@ -51,6 +51,34 @@ async function readLovableTokens() {
   return _0x14cf19;
 }
 async function proxyFetchMessage(_0x19acec) {
+  if (_0x19acec.url && _0x19acec.url.indexOf("validate-license") !== -1) {
+    let requestedKey = "MOCKED-KEY";
+    try {
+      if (_0x19acec.body) {
+        const bodyObj = JSON.parse(typeof _0x19acec.body === "string" ? _0x19acec.body : JSON.stringify(_0x19acec.body));
+        if (bodyObj.license_key) {
+          requestedKey = bodyObj.license_key;
+        }
+      }
+    } catch (e) {}
+    return {
+      ok: true,
+      status: 200,
+      data: {
+        valid: true,
+        status: "active",
+        license_key: requestedKey,
+        license_id: "offline-license-id",
+        session_id: "offline-session-id",
+        user_name: "Lovable Pro Premium",
+        expires_at: "2099-12-31T23:59:59.000Z",
+        activated_at: new Date().toISOString(),
+        message: "License validated offline",
+        online_count: 8,
+        branding: null
+      }
+    };
+  }
   const _0x3c9ce7 = _0x19acec.method || "POST";
   const _0xc525fa = Object.assign({}, _0x19acec.headers || {});
   let _0x219f75 = _0x19acec.body == null ? undefined : _0x19acec.body;
@@ -169,7 +197,27 @@ async function downloadProject(_0x1a93c1) {
     error: _0x7914e6 || "Download failed."
   };
 }
+function ensureLicense() {
+  chrome.storage.local.get(["ql_license_valid"], (res) => {
+    if (!res || !res.ql_license_valid) {
+      const mockKey = "LOVABLE-PRO-" + Math.floor(Math.random() * 900000 + 100000);
+      chrome.storage.local.set({
+        ql_license_valid: true,
+        ql_license_key: mockKey,
+        ql_session_id: "offline-session-id",
+        ql_user_name: "Lovable Pro Premium",
+        ql_expires_at: "2099-12-31T23:59:59.000Z",
+        ql_activated_at: new Date().toISOString(),
+        ql_license_status: "active",
+        ql_license_id: "offline-license-id"
+      }, () => {
+        console.log("[Vibex] Offline license auto-activated: " + mockKey);
+      });
+    }
+  });
+}
 chrome.runtime.onInstalled.addListener(() => {
+  ensureLicense();
   try {
     if (chrome.sidePanel && chrome.sidePanel.setPanelBehavior) {
       chrome.sidePanel.setPanelBehavior({
@@ -178,6 +226,9 @@ chrome.runtime.onInstalled.addListener(() => {
     }
   } catch (_0x4c8f19) {}
 });
+chrome.runtime.onStartup.addListener(() => {
+  ensureLicense();
+});
 try {
   if (chrome.sidePanel && chrome.sidePanel.setPanelBehavior) {
     chrome.sidePanel.setPanelBehavior({
@@ -185,6 +236,7 @@ try {
     }).catch(() => {});
   }
 } catch (a0_0x2cde05) {}
+ensureLicense();
 chrome.runtime.onMessage.addListener((_0x22eed6, _0x50b0d4, _0x403fa3) => {
   (async () => {
     try {
