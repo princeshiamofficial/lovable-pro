@@ -1427,8 +1427,17 @@ function updateSyncStatus() {
     }
     if (_0x236b88.lovable_projectId && _0x236b88.lovable_token) {
       _0x4f6efa.className = "ql-sync-status ql-sync-ok";
-      const _0x32e618 = _0x236b88.lovable_projectId.substring(0, 6);
-      _0x4f6efa.innerHTML = "<span class=\"ql-sync-text\">" + t("sync.ok") + " " + t("sync.project") + " " + _0x32e618 + "...</span>";
+      let displayProject = _0x236b88.lovable_projectId.substring(0, 6) + "...";
+      try {
+        const pEl = document.querySelector('p[translate="no"]');
+        if (pEl) {
+          const text = (pEl.innerText || pEl.textContent || "").trim();
+          if (text) {
+            displayProject = text;
+          }
+        }
+      } catch (e) {}
+      _0x4f6efa.innerHTML = "<span class=\"ql-sync-text\">" + t("sync.ok") + " " + t("sync.project") + " " + displayProject + "</span>";
     } else {
       _0x4f6efa.className = "ql-sync-status ql-sync-waiting";
       _0x4f6efa.innerHTML = "<span class=\"ql-sync-text\">" + SVG_ICONS.clock + t("sync.waiting") + "</span>";

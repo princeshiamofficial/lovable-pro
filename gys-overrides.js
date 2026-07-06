@@ -202,6 +202,11 @@
     } catch (_) {}
 
     patchLogos(document);
+    if (typeof updateSyncStatus === "function") {
+      try {
+        updateSyncStatus();
+      } catch (_) {}
+    }
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", patch);
