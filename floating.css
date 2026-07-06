@@ -2238,3 +2238,10 @@
 .ql-countdown-icon svg { stroke: var(--ql-warning) !important; width:13px; height:13px; }
 .ql-floating.ql-light .ql-countdown-icon,
 .ql-floating.ql-light .ql-countdown-icon svg { color:#b45309 !important; stroke:#b45309 !important; }
+
+/* ===== Hide share card hover border/gradient when license is activated ===== */
+.ql-license-activated span[class*="via-brand-bubblegum-primary"],
+.ql-license-activated span[class*="to-brand-tiger-primary"],
+.ql-license-activated span[class*="group-hover/share-card"] {
+  display: none !important;
+}

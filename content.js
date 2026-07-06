@@ -13,6 +13,9 @@ function activateBypass() {
   try {
     localStorage.setItem("__ql_bypass_active", "1");
   } catch (_0x332ea6) {}
+  try {
+    document.documentElement.classList.add("ql-license-activated");
+  } catch (e) {}
   window.postMessage({
     type: "qlBypassState",
     active: true
@@ -22,6 +25,9 @@ function deactivateBypass() {
   try {
     localStorage.removeItem("__ql_bypass_active");
   } catch (_0x183657) {}
+  try {
+    document.documentElement.classList.remove("ql-license-activated");
+  } catch (e) {}
   window.postMessage({
     type: "qlBypassState",
     active: false
