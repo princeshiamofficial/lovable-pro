@@ -570,3 +570,15 @@ body.sp-light .vibex-social {
 .sp-notif-btn, .sp-support-link, .vibex-header-support {
   display: none !important;
 }
+
+/* ===== Hide scrollbars for the sidepanel page ===== */
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+}
+html,
+body,
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
