@@ -1,9 +1,9 @@
-/* Get Your Services - branding & link overrides (runs after reseller-branding.js) */
+/* MiraSoft - branding & link overrides (runs after reseller-branding.js) */
 (function () {
   'use strict';
 
   var BRAND_OLD = /Vibex\s*Academy/gi;
-  var BRAND_NEW = "Get Your Services";
+  var BRAND_NEW = "MiraSoft";
   var LINKS = {
     renew: "https://ext.getyourservicebd.store",
     support: "http://wa.me/+8801833226462",

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Get Your Services",
+  "name": "MiraSoft",
   "version": "3.8.6",
   "description": "Developed by Mehan Ahmed",
   "permissions": [
@@ -19,7 +19,7 @@
     "https://tvttbagljqbkcobruwnl.supabase.co/*"
   ],
   "action": {
-    "default_title": "Get Your Services",
+    "default_title": "MiraSoft",
     "default_icon": {
       "16": "assets/icon16.png",
       "32": "assets/icon32.png",
