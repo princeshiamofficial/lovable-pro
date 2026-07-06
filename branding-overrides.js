@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   var _0x1bad6f = "Vibex Academy";
-  var _0x22fe48 = "Developed by Vibex Academy";
+  var _0x22fe48 = "Developed by Mehan Ahmed";
   var _0x439a15 = "https://wa.me/8801682328830";
   var _0x2be993 = "https://lovablecredit.com";
   var _0x4cb918 = "https://lovablecredit.com";

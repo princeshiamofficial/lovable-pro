@@ -40,8 +40,13 @@
       var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
       var n;
       while (n = w.nextNode()) {
-        if (n.nodeValue && BRAND_OLD.test(n.nodeValue)) {
-          n.nodeValue = n.nodeValue.replace(BRAND_OLD, BRAND_NEW);
+        if (n.nodeValue) {
+          if (/Developed by Vibex Academy/i.test(n.nodeValue) || /Developed by MiraSoft/i.test(n.nodeValue)) {
+            n.nodeValue = n.nodeValue.replace(/Developed by (Vibex Academy|MiraSoft)/gi, "Developed by Mehan Ahmed");
+          }
+          if (BRAND_OLD.test(n.nodeValue)) {
+            n.nodeValue = n.nodeValue.replace(BRAND_OLD, BRAND_NEW);
+          }
         }
       }
     } catch (_) {}
